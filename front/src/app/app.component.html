@@ -1,86 +1,28 @@
-<!-- <header></header>
-<descarga></descarga>
-<reproduccion></reproduccion>
+<button mat-button [matMenuTriggerFor]="menugeneral">Menú</button>
 
-<router-outlet></router-outlet>
-<info-perfil></info-perfil>
-<actualizar-cancion></actualizar-cancion> -->
-
-<!-- <crear-cancion></crear-cancion> -->
-<!-- <login></login>
-<form-registro></form-registro>
-<cuenta-administrador></cuenta-administrador> -->
-    
-
-<div>
-    <ul>
-        <li routerLinkActive="red">
-            <a routerLink="/Inicio">Home</a>
-        </li>
-        <li routerLinkActive="blue">
-            <a routerLink="/CrearCancion">Crear canción</a>
-        </li>
-        <li routerLinkActive="blue">
-            <a routerLink="/ActualizarCancion">Actualizar canción</a>
-        </li>
-        <li routerLinkActive="green">
-            <a routerLink="/ConsultarCanciones">Consultar canciones</a>
-        </li>
-    </ul>
-
-<div class="container text-center">
-    <notificacion></notificacion>
-  
-</div>
-<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
-
-<mat-menu #animals="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
-  <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+<mat-menu #menugeneral="matMenu">
+    <button mat-menu-item  routerLink="/home">Inicio</button>
+  <button mat-menu-item [matMenuTriggerFor]="canciones">Canciones</button>
+  <button mat-menu-item [matMenuTriggerFor]="usuarios">Usuario</button>
+  <button mat-menu-item [matMenuTriggerFor]="general">General</button>
 </mat-menu>
 
-<mat-menu #vertebrates="matMenu">
+<mat-menu #canciones="matMenu">
   <button mat-menu-item  routerLink="/CrearCancion">Crear canción</button>
-  <button mat-menu-item [matMenuTriggerFor]="fish" >Fishes</button>
-  <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
-  <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-  <button mat-menu-item>Birds</button>
-  <button mat-menu-item>Mammals</button>
+  <button mat-menu-item  routerLink="/ConsultarCanciones">Lista de canciones</button>
 </mat-menu>
-
-<mat-menu #invertebrates="matMenu">
-  <button mat-menu-item>Insects</button>
-  <button mat-menu-item>Molluscs</button>
-  <button mat-menu-item>Crustaceans</button>
-  <button mat-menu-item>Corals</button>
-  <button mat-menu-item>Arachnids</button>
-  <button mat-menu-item>Velvet worms</button>
-  <button mat-menu-item>Horseshoe crabs</button>
+<mat-menu #usuarios="matMenu">
+  <button mat-menu-item  routerLink="/info-perfil">Información perfil</button>
 </mat-menu>
-
-<mat-menu #fish="matMenu">
-  <button mat-menu-item>Baikal oilfish</button>
-  <button mat-menu-item>Bala shark</button>
-  <button mat-menu-item>Ballan wrasse</button>
-  <button mat-menu-item>Bamboo shark</button>
-  <button mat-menu-item>Banded killifish</button>
-</mat-menu>
-
-<mat-menu #amphibians="matMenu">
-  <button mat-menu-item>Sonoran desert toad</button>
-  <button mat-menu-item>Western toad</button>
-  <button mat-menu-item>Arroyo toad</button>
-  <button mat-menu-item>Yosemite toad</button>
-</mat-menu>
-
-<mat-menu #reptiles="matMenu">
-  <button mat-menu-item>Banded Day Gecko</button>
-  <button mat-menu-item>Banded Gila Monster</button>
-  <button mat-menu-item>Black Tree Monitor</button>
-  <button mat-menu-item>Blue Spiny Lizard</button>
-  <button mat-menu-item disabled>Velociraptor</button>
-</mat-menu>
-</div>
-
-
+<mat-menu #general="matMenu">
+    <button mat-menu-item  routerLink="/form-registro">Registrar usuario</button>
+    <button mat-menu-item  routerLink="/login">Login</button>
+    <button mat-menu-item  routerLink="/cuenta-administrador">Cuenta Administrador</button>
+  </mat-menu>
+  <div class="container text-center">
+      <notificacion></notificacion>
+    
+  </div>
 <router-outlet></router-outlet>
+
+<footer></footer>

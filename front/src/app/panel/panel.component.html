@@ -1,37 +1,3 @@
-<div class="contenedor">
-  <div>
-    <img src="../../assets/images/logo_BitMusic.png" alt=""/>
-  </div>
-  <div>
-    <div class="tituloListaCanciones">
-      <img src="" alt=""/>
-      <h2>Busca Tu Canción</h2>
-      <img src="" alt=""/>
-    </div>
-    <div class="buscadorListaCanciones">
-      <input  class="buscador" [formControl]="busqueda" placeholder="Que quieres agregar" size="100%">
-      <button class="botonDescargar">AGREGAR</button>
-    </div>
-    <div class="listadoDeCanciones">
-    <app-item-cancion *ngFor="let c of cancionesFiltradas" [cancion]='c' (addCancion)='handlerAddCancion($event)'></app-item-cancion>
-    </div>
-  </div>
-  <div class="perfil">
-    <div><img class="fotoPerfil" src="../../assets/images/woman-1149911__340.jpg" width="110PX" height="110px"></div>
-    <div class="menu">
-      <button class="botonPerfil" (click)="get()">
-        <img src="../../assets/images/icons8-menú-redondeado-30.png" alt="">
-      </button>
-      <div *ngIf="activo">
-        <p><a routerLink="/info-perfil">Editar Perfil</a></p>
-        <p *ngIf="usuarioActual.role === 'Admin'"><a routerLink="/cuenta-administrador">Administración</a></p>
-        <p><a (click)="cerrarSesion()">Cerrar Sesión</a></p>
-      </div>
-    </div>
-    <!-- <img class="fotoPerfil" src="../../assets/images/woman-1149911__340.jpg" width="110PX" height="110px"/> <img src="../../assets/images/icons8-menú-redondeado-30.png" width="30px" height="30px"/> <nav class="lista-menu"> <ul> <li> <a href="">Información</a> </li> <li> <a routerlink="/cuenta-administrador" href="">Administración</a> <ul> <li> <a href="">Administrar Usuarios</a> </li> <li> <a href="">Submenu2</a> </li> <li> <a href="">Submenu3</a> </li> </ul> </li> <li (click)="cerrarSesion()"> Cerrar Sesión </li> </ul> </nav> -->
-  </div>
-</div>
-
 <div>
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|ZCOOL+XiaoWei&display=swap" rel="stylesheet"/>
   <div class="MisCanciones">

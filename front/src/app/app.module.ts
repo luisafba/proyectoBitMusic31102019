@@ -7,6 +7,9 @@ import { AppComponent } from "./app.component";
 
 import { ListaReproduccionComponent } from "./lista-reproduccion/lista-reproduccion.component";
 import { DescargaComponent } from "./descarga/descarga.component";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+import { PanelComponent } from "./panel/panel.component";
 import { InfoPerfilComponent } from './info-perfil/info-perfil.component';
 import { CrearCancionComponent } from './crear-cancion/crear-cancion.component';
 import { ActualizarCancionComponent } from './actualizar-cancion/actualizar-cancion.component';
@@ -88,6 +91,21 @@ const routes: Routes = [
     canActivate: [CanActivateViaAuthGuard]
   },
   {
+    path: "header",
+    component: HeaderComponent,
+    canActivate: [CanActivateViaAuthGuard]
+  },
+  {
+    path: "footer",
+    component: FooterComponent,
+    canActivate: [CanActivateViaAuthGuard]
+  },
+  {
+    path: "panel",
+    component: PanelComponent,
+    canActivate: [CanActivateViaAuthGuard]
+  },
+  {
     path: "cuenta-administrador",
     component: CuentaAdministradorComponent,
     canActivate: [CanActivateViaAuthGuard, AdminGuard]
@@ -96,8 +114,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, CrearCancionComponent, ErrorComponent, 
-        ListaReproduccionComponent, DescargaComponent, InfoPerfilComponent, ActualizarCancionComponent, 
-        FormRegistroComponent, 
+        ListaReproduccionComponent, HeaderComponent, DescargaComponent, InfoPerfilComponent, ActualizarCancionComponent, 
+        FormRegistroComponent, FooterComponent,PanelComponent,
         FormLoginComponent, CuentaAdministradorComponent, ConsultarCancionesComponent, 
         ConfirmacionDialogComponent, ItemCancionComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, HttpClientModule, 

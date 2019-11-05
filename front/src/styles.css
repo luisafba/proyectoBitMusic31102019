@@ -296,7 +296,7 @@ button {
   background: #f123a9;
 }
 .eliminarEditar {
-  display: flex;
+  /*display: flex;*/
   justify-content: space-between;
 }
 

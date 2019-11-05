@@ -1,8 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CancionService } from '../servicios/cancion.service';
 import { NotificacionService } from '../servicios/notificacion.service';
+import { Cancion } from "../modelos/cancion.module";
 
 @Component({
   selector: "actualizar-cancion",
@@ -10,6 +11,11 @@ import { NotificacionService } from '../servicios/notificacion.service';
   styleUrls: ["./actualizar-cancion.component.css"]
 })
 export class ActualizarCancionComponent implements OnInit {
+
+  @ViewChild('audioOption', {static: false}) audioPlayerRef: ElementRef;
+  cancionSeleccionada :string;
+  cancion:Cancion;
+
   constructor(private router: Router, private route: ActivatedRoute, private builder: FormBuilder,
     private _cancionservice: CancionService, private notificacionService: NotificacionService) { } //notacion para servicios
 
@@ -26,7 +32,7 @@ export class ActualizarCancionComponent implements OnInit {
   })
 
   ngOnInit() {
-    this.getCancion(this.route.snapshot.params.id);
+    this.getCancion(this.route.snapshot.params.id);  
   }
 
   onSelectFile(event) {
@@ -41,6 +47,8 @@ export class ActualizarCancionComponent implements OnInit {
     console.log("this.cancionForm.value" + id);
     this._cancionservice.getCancion(id).subscribe((data: any) => {
       this._id = data.canciones._id;
+      this.cancion = data.canciones;
+      this.cancionSeleccionada = "Titulo:"+this.cancion.titulo+" - Artista: "+this.cancion.artista+" - Genero:"+this.cancion.genero;
       this.archivoAnterior = data.canciones.archivo;
       this.cancionForm.setValue({
         _id: data.canciones._id,
@@ -68,6 +76,11 @@ export class ActualizarCancionComponent implements OnInit {
       }
       );
   }
+  
 
+  ngAfterViewChecked() {
+    this.audioPlayerRef.nativeElement.src =this.cancion.archivo;
+    this.audioPlayerRef.nativeElement.play();
+  }
 
 }
