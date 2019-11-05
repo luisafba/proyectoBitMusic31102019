@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UsuarioService } from "./usuario.service";
-import { CancionService } from "./cancion.service";
+import { CancionService } from "./servicios/cancion.service";
 import { Cancion } from "./modelos/cancion.module";
 import { Usuario } from "./modelos/usuario.module";
 

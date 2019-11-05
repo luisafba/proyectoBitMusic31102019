@@ -21,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminGuard } from './guards/admin.guard';
 import { ItemCancionComponent } from './item-cancion/item-cancion.component';
 import { CommonModule } from '@angular/common';
-
+import { CanActivateViaAuthGuard } from './guards/auth.guard'
 
 import {
   MatInputModule,
@@ -69,7 +69,7 @@ const routes: Routes = [
   },
   {
     path: "ConsultarCanciones",
-    component: ConsultarCanciones,
+    component: ConsultarCancionesComponent,
     canActivate: [CanActivateViaAuthGuard]
   },
   {
@@ -85,11 +85,6 @@ const routes: Routes = [
   {
     path: "descarga",
     component: DescargaComponent,
-    canActivate: [CanActivateViaAuthGuard]
-  },
-  {
-    path: "editar-cancion",
-    component: ActualizarCancionComponent,
     canActivate: [CanActivateViaAuthGuard]
   },
   {
