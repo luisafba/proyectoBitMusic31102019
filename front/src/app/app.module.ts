@@ -13,7 +13,7 @@ import { ActualizarCancionComponent } from './actualizar-cancion/actualizar-canc
 import { FormRegistroComponent } from './form-registro/form-registro.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { CuentaAdministradorComponent } from './cuenta-administrador/cuenta-administrador.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { ConsultarCancionesComponent } from './consultar-canciones/consultar-canciones.component';
@@ -97,12 +97,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent, HomeComponent, CrearCancionComponent, ErrorComponent, 
         ListaReproduccionComponent, DescargaComponent, InfoPerfilComponent, ActualizarCancionComponent, 
-        FormRegistroComponent,
+        FormRegistroComponent, 
         FormLoginComponent, CuentaAdministradorComponent, ConsultarCancionesComponent, 
         ConfirmacionDialogComponent, ItemCancionComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, HttpClientModule, 
         BrowserAnimationsModule,CustomMaterialModule, NotificacionModule,
-        MatInputModule,
+        MatInputModule, FormsModule,
         MatTableModule,
         MatPaginatorModule,
         MatSortModule,
