@@ -11,7 +11,11 @@
     </div>
     <div class="MisCanciones">
         <div class="actualizarCancion">
+             <button mat-button (click)="this.escucharCancion()">
+                    <img class="icon" src="../../assets/images/play.png" />
+                </button>
             <form [formGroup]="cancionForm" (ngSubmit)="onFormSubmit()">
+               
                 <label for="titulo">ID:</label>
                 <input disabled type="text" formControlName="_id" />
                 <label for="titulo">Título:</label>

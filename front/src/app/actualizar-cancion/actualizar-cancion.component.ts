@@ -78,7 +78,7 @@ export class ActualizarCancionComponent implements OnInit {
   }
   
 
-  ngAfterViewChecked() {
+  escucharCancion() {
     this.audioPlayerRef.nativeElement.src =this.cancion.archivo;
     this.audioPlayerRef.nativeElement.play();
   }
