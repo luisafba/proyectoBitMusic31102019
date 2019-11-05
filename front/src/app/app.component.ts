@@ -1,31 +1,32 @@
-import { Component, OnInit, OnDestroy} from "@angular/core";
-import { NotificacionesBusService} from './servicios/notificacion.service'
-import { Notificacion} from './modelos/notificacion.module'
-
+import { Component, OnInit } from "@angular/core";
+import { UsuarioService } from "./usuario.service";
+import { CancionService } from "./servicios/cancion.service";
+import { Cancion } from "./modelos/cancion.module";
+import { Usuario } from "./modelos/usuario.module";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent /*implements OnInit, OnDestroy */{
+export class AppComponent implements OnInit {
   title = "frontperfil";
-  constructor(/*, private notificacionesBus: NotificacionesBusService*/) { }
-  notificacionesSub : any;
-  msgs: any[];
-/*
+
+  constructor(
+    private cancionservice: CancionService,
+    private usuarioservice: UsuarioService
+  ) {}
+
+  Canciones: Array<Cancion> = [];
+  Usuarios: Array<Usuario> = [];
+
   ngOnInit() {
-      this.notificacionesSub = 
-      this.notificacionesBus.getNotificacion().subscribe(
-          (notificacion: Notificacion) => {
-              this.msgs = [];
-              this.msgs.push(notificacion);
-          }
-        );
+    /* this.usuarioservice.getUsuario().subscribe(response => {
+      this.Usuarios = response;
+    }); */
+
+    this.cancionservice.getCanciones().subscribe(response => {
+      this.Canciones = response;
+    });
   }
-  ngOnDestroy() {
-    if (this.notificacionesSub) {
-        this.notificacionesSub.unsubscribe();
-    }
-}*/
 }

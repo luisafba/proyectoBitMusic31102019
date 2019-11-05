@@ -1,0 +1,4 @@
+<div *ngFor="let notificacion of notificaciones" class="{{cssClass(notificacion)}} alert-dismissable">
+        {{notificacion.mensaje}}
+        <a class="close" (click)="quitarNotificacion(notificacion)">&times;</a>
+    </div>
