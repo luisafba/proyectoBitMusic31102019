@@ -19,6 +19,8 @@ export class DescargaComponent implements OnInit {
   cancionesFiltradas: any[];
   misCanciones: any[] = [];
 
+  usuarioActual: Usuario;
+  
   get(despliegueMenu) {
     this.activo = !this.activo;
   }
@@ -26,7 +28,7 @@ export class DescargaComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   constructor(
   private _loginService: LoginService, 
-  private router: Router
+  private router: Router,
   private _http: HttpClient
   
   ) {
@@ -44,8 +46,7 @@ export class DescargaComponent implements OnInit {
   
   }
 
-  activo = false;
-  usuarioActual: Usuario;
+  
 
   ngOnInit() {
     this.usuarioActual = this._loginService.obtenerUsuario();
@@ -70,9 +71,9 @@ export class DescargaComponent implements OnInit {
     this.router.navigate(["/"]);
   }
 
-  get() {
+  /*get() {
     this.activo = !this.activo;
-  }
+  }*/
   
   
 }

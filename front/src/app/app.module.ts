@@ -60,8 +60,18 @@ const routes: Routes = [
     canActivate: [CanActivateViaAuthGuard]
   },
   {
-    path: "crear-cancion",
+    path: "CrearCancion",
     component: CrearCancionComponent,
+    canActivate: [CanActivateViaAuthGuard]
+  },
+  {
+    path: "ConsultarCanciones",
+    component: ConsultarCanciones,
+    canActivate: [CanActivateViaAuthGuard]
+  },
+  {
+    path: "ActualizarCancion/:id", 
+    component: ActualizarCancionComponent,
     canActivate: [CanActivateViaAuthGuard]
   },
   {
