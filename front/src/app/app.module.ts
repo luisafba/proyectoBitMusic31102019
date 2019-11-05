@@ -37,12 +37,18 @@ const routes: Routes = [
     path: "CrearCancion", component: CrearCancionComponent
   },
   {
+    path: "ConsultarCancion", component: ConsultarCancionesComponent
+  },
+  {
+    path: "ActualizarCancion", component: ActualizarCancionComponent
+  },
+  {
     path: "**", component: ErrorComponent
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CrearCancionComponent, ErrorComponent,ListaReproduccionComponent, DescargaComponent, InfoPerfilComponent, ActualizarCancionComponent, FormRegistroComponent, FormLoginComponent, CuentaAdministradorComponent, ConsultarCancionesComponent],
+  declarations: [AppComponent, HomeComponent, CrearCancionComponent,ConsultarCancionesComponent, ErrorComponent,ListaReproduccionComponent, DescargaComponent, InfoPerfilComponent, ActualizarCancionComponent, FormRegistroComponent, FormLoginComponent, CuentaAdministradorComponent, ConsultarCancionesComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

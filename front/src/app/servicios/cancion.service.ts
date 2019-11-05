@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Cancion } from "../modelos/cancion.module";
-
+import { map } from 'rxjs/operators';
+  
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +19,10 @@ readonly httpOptions = {
 readonly Url_API = 'http://localhost:3000/api/canciones'
 
   constructor(private http: HttpClient) { }
+
+  private cancion: Cancion = null;
+
+
   getCancion(): Observable<Cancion[]> {
     return this.http.get<Cancion[]>(this.Url_API);
   }
@@ -31,4 +36,19 @@ readonly Url_API = 'http://localhost:3000/api/canciones'
       return this.http.post<Cancion>(this.Url_API, formData, this.httpOptions);
   }
 
+  setCancion(cancion: Cancion) {
+    this.cancion = cancion;
+  }
+
+  editarUsuario(cancion: Cancion) {
+    return this.http.put<Cancion>(`${this.Url_API}/${cancion.id}`, cancion);
+  }
+
+  obtenerUsuarios() {
+    return this.http.get<Cancion[]>(`${this.Url_API}/canciones`).pipe(
+      map((res: any) => {
+        return res.canciones;
+      })
+    );
+  }
 }

@@ -1,1 +1,22 @@
-<p>consultar-canciones works!</p>
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<div class="contenedorCrear"> 
+    <div class="tituloListaCanciones">
+        <img src="../../assets/images/flecha-izq.png" alt="">
+        <h2>Consultar Canción</h2>
+        <img src="../../assets/images/guardar.png" width="30px" height="30px" alt="">
+    </div>
+  
+     <form [formGroup]="consultarCancionForm" (ngSubmit)="enviar()" >
+    <label>Título:</label>
+    <input formControlName="titulo" type="text" />
+    <label for="duracion">Duración:</label>
+    <input formControlName="duracion" type="Number" name="duracion" id="duracion"/>
+    <label for="genero">Género:</label>
+    <input formControlName="genero" type="text" />
+    <label for="artista">Artista: </label>
+    <input formControlName="artista" type="text" name="artista" id="artista"/>
+    <label for="archivo">Archivo: </label>
+    <input type="file" accept=".mp3,audio/*" (change)="onSelectFile($event)" name="archivo" id="archivo" #fileInput> 
+    <button [disabled]="!cancionForm.valid" type="submit">Registrar</button>
+   </form>  
+ 
