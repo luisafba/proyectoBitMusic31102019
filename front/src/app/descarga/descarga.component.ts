@@ -12,6 +12,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ["./descarga.component.css"]
 })
 export class DescargaComponent implements OnInit {
+  activo = false;
+
+  get(despliegueMenu) {
+    this.activo = !this.activo;
+  }
   
   busqueda = new FormControl('');
   activo = false;
